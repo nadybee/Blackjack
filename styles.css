@@ -1,3 +1,78 @@
-.main{
-  background-color: antiquewhite;
+body{
+  display: inline;
+  background-color: green;
+  color: white
+}
+
+img {
+  height: 200px;
+  width: auto;
+  margin: 5px;
+  
+}
+.hidden {
+  display: none;
+  
+}
+
+.show{
+  display:inline-block
+}
+
+/* 
+#dealers-hand img{ 
+  display:inline-flex
+
+} */
+.players-hand {
+  display: inline-flex;
+}
+
+/* #dealer-card2{
+  display:inline-flex;
+} */
+
+button {
+  padding: 5px;
+  margin: 10px;
+
+}
+
+.chips button{
+  height: 60px;
+  width: 60px;
+  color:white;
+  background-color: black;
+  border-radius: 50%;
+  border-style: double;
+  border-width: thick;
+  font-size: 20px;
+  
+
+}
+#ten{
+  border-color: red;
+
+}
+.disabled{
+  opacity: 50%;
+}
+#twenty{
+  border-color: darkgreen;
+
+}
+#forty{
+  border-color: blue;
+
+}
+#hundred{
+  border-color: yellow;
+
+}
+#all-in{
+  border-color: grey;
+ 
+}
+#dealers-hand {
+  display: inline-flex
 }
