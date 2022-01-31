@@ -1,6 +1,7 @@
 let playersBalance = 200
 let betBalance = 0
 let game;
+let split;
 let testHand = [ { name: 'ace of clubs',
 value: 1,
 img:'card_images/ace_of_clubs.png',
@@ -18,6 +19,12 @@ const testDraw2 = { name: 'Jack of clubs',
 value: 10,
 img:   'card_images/jack_of_clubs2.png',
 ace: false}
+
+const testDraw3 = { name: 'ace of hearts', 
+value: 1,
+img:'card_images/ace_of_hearts.png',
+ace: true}
+
 /**dealer variables dealer card spot 1-6 */
 const dealer= document.querySelector('#dealers-hand')
 const dCardOneSpot =document.getElementById('dealer-card1')
@@ -67,7 +74,6 @@ const pcardSevenSpot = document.getElementById('player-card7')
 const playersTotalDiv = document.getElementById('players-total')
 
 const placeBet = document.getElementById('players-chips')
-const placeBetTitle =document.getElementById('place-bet')
 const ten =document.getElementById('ten')
 const wins = document.getElementById('wins')
 const losses = document.getElementById('losses')
@@ -88,5 +94,23 @@ const dealerBusted = document.getElementById('dealer-busted')
 /** action buttons after bet */
 const hit = document.getElementById('hit')
 const stay = document.getElementById('stay')
+const double = document.getElementById('double')
+const splitIt = document.getElementById('split-hand')
 
+/** cards for splitting */
+const splitCardOne=document.createElement('img')
+const splitOneSpot =document.getElementById('player-card1')
+
+const splitCardTwo=document.createElement('img');
+const splitTwoSpot = document.getElementById('player-card2')
+
+const splitCardThree=document.createElement('img');
+const splitThreeSpot = document.getElementById('player-card3')
+
+
+const splitCardFour=document.createElement('img');
+const splitFourSpot = document.getElementById('player-card4')
+
+const splitCardFive=document.createElement('img');
+const splitFiveSpot = document.getElementById('player-card5')
 

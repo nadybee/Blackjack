@@ -7,6 +7,8 @@ class Hand {
     
     
   }
+
+
     /** getter and setter to get players hand totals */
  get playersTotal (){
   return this._playersTotal
@@ -35,15 +37,6 @@ set dealersTotal(value) {
     this._wins = value
   }
 
-/** get and set losses */
-
-get losses(){
-  return this._losses
-}
-
-set losses(value) {
-  this._losses = value
-}
 
 /** starts the game */
 
@@ -54,7 +47,8 @@ set losses(value) {
   this.wins = 0
   this.losses = 0
   wins.innerHTML = this.wins
-  losses.innerHTML = this.losses
+
+  
   
   }
  
@@ -77,15 +71,16 @@ firstBet() {
     playerCardOne.src =this.playerHand[0].img
 
 /*deal dealers second card*/
-    // this.dealerHand.push(testDraw2);
+    // this.dealerHand.push(testDraw1);
     this.dealerHand.push(this.deck.drawCard());
     dcardTwoSpot.appendChild(dealerCardTwo)
     dealerCardTwo.src = this.dealerHand[1].img
   
   /* deals players second card*/
-  // this.playerHand.push(testDraw1)
-    this.playerHand.push(this.deck.drawCard());
+  // this.playerHand.push(testDraw1)  
     // this.playerHand.push(testDraw2);
+    // this.playerHand.push(testDraw3);
+    this.playerHand.push(this.deck.drawCard());
     pcardTwoSpot.appendChild(playerCardTwo)
     playerCardTwo.src = this.playerHand[1].img
 
@@ -106,7 +101,8 @@ firstBet() {
     playersTotalDiv.innerHTML = `<p> Players Hand Total: ${this.playersTotal}`
     /**updates wins and losses*/
     wins.innerHTML = `${this.wins}`
-    losses.innerHTML =`${this.losses}`
+   this.showDoubleDown()
+
     
 }
 
@@ -269,7 +265,7 @@ return total
 
   checkForDealersBlackJack (){
     if(this.dealersFirstTotal===21 && this.playersFirstTotal!==21) {
-     this.losses += 10
+     this.wins -= 10
      this.activateBetButton()
      this.showDealersCard()
      dealerBlackjack.classList.remove('hidden')
@@ -282,7 +278,7 @@ return total
     actionButtons.classList.add('hidden')
     ten.disabled=false;
     ten.classList.remove('disabled')
-    placeBetTitle.innerText ='PLEASE BET AGAIN'
+    
   }
 
   showDealersCard() {
@@ -347,15 +343,40 @@ hitFive(){
 
 checkForPlayerBust() {
   if(this.playersTotal>21) {
-    this.losses=+10
+    this.wins-=10
     this.showDealersCard()
     busted.classList.remove('hidden')
-    losses.innerHTML = this.losses
+    wins.innerHTML = this.wins
     actionButtons.classList.add('hidden')
     this.activateBetButton()
   
   }
 }
+
+checkWhoWon() { 
+  if (this.dealersTotal>21){
+    this.wins += 10
+    dealerBusted.classList.remove('hidden')
+  }
+else if(this.dealersTotal < this.playersTotal) {
+  this.wins += 10
+  win.classList.remove('hidden')
+  
+}
+else if(this.dealersTotal === this.playersTotal){
+  push.classList.remove('hidden')
+
+}
+else {
+  this.wins -= 10
+  lost.classList.remove('hidden')
+  
+}
+
+wins.innerHTML = this.wins
+this.activateBetButton()
+}
+
 
 
 hitting() {
@@ -383,7 +404,7 @@ hitting() {
 
 }
 
-stay() {
+stayPlay() {
   this.showDealersCard()
   actionButtons.classList.add('hidden')
 
@@ -412,35 +433,70 @@ stay() {
 
   }
  
-  this.checkWhoWon()
 }
-  checkWhoWon() { 
-    if (this.dealersTotal>21){
-      this.wins += 10
-      dealerBusted.classList.remove('hidden')
+
+stay() {
+ this.stayPlay()
+ this.checkWhoWon()
+}
+
+/* doubles bet gets one more card */
+showDoubleDown(){
+  if (this.playersFirstTotal === 9||
+    this.playersFirstTotal === 10||
+    this.playersFirstTotal === 11) {
+      double.classList.remove('hidden')
     }
-  else if(this.dealersTotal < this.playersTotal) {
-    this.wins += 10
-    win.classList.remove('hidden')
-    
-  }
-  else if(this.dealersTotal === this.playersTotal){
-    push.classList.remove('hidden')
 
-  }
-  else {
-    this.losses += 10
-    lost.classList.remove('hidden')
-    
-  }
-
-  losses.innerHTML = this.losses 
-  wins.innerHTML = this.wins
-  this.activateBetButton()
 }
+/** checking double down win to pay or lose double */
+checkWhoWonOnDouble() { 
+  if (this.dealersTotal>21){
+    this.wins += 20
+    dealerBusted.classList.remove('hidden')
+  }
+else if(this.dealersTotal < this.playersTotal) {
+  this.wins += 20
+  win.classList.remove('hidden')
+  
+}
+else if(this.dealersTotal === this.playersTotal){
+  push.classList.remove('hidden')
+
+}
+else {
+  this.wins -= 20
+  lost.classList.remove('hidden')
+  
+}
+
+wins.innerHTML = this.wins
+this.activateBetButton()
+}
+
+/** hides other buttons, deals one card on double bet */
+doubleDown() {
+  hit.disabled=true;
+  hit.classList.add('disabled')
+  stay.disabled=true;
+  stay.classList.add('disabled')
+
+  this.hitOne()
+  this.stayPlay()
+  this.checkWhoWonOnDouble()
+
+}
+
+// showSplit () { 
+//   if (this.playerHand[0].value === this.playerHand[1].value){
+//     splitHand.classList.remove('hidden')
+//   }
+
+// }
+
 
 /** reset the hand 
-   * used after blackJack, bust or stand
+   * used after blackJack, bust or stay
    * game ends if there are less than 10 cards in the deck
    */
 reset(){
@@ -453,6 +509,12 @@ reset(){
   this.playerHand = []
   ten.disabled=false;
   ten.classList.remove('disabled')
+  hit.disabled=false;
+  hit.classList.remove('disabled')
+  stay.disabled=false;
+  stay.classList.remove('disabled')
+  splitting.classList.add('hidden')
+  double.classList.add('hidden')
   blackJack.classList.add('hidden')
   busted.classList.add('hidden')
   win.classList.add('hidden')
@@ -488,39 +550,7 @@ reset(){
 
 
 
-// }
 
-//   calculateHand(hand, total){
-//        
-//     }
-
-    
-// checkForBlackJack(hand){
-  
-//   for(let i= 0; i<hand.length; i++) {
-//     if(hand[i].ace && this.playersTotal === 11 )  {
-//     this.playersTotal+=10
-//    return this.playersTotal
-//     }
-//   }
-//   // if(this.checkForWin()){
-//   //   console.log('You won!')
-//   // }
-//   }
-
-
-// } 
-// endHand(){
-  
-// }
-
-// betTen(){
-//   this.bet+=10
-//   // playersBalance-=10
-//   // playersMoney.innerHTML = `<h3> Players Balance <strong> $${playersBalance} </strong> </h3>`
-//   // currentBet.innerHTML = `<p> Current bet is: $${betBalance}`
-// return this.bet
-// }
 
 
   

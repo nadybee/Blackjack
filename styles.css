@@ -24,7 +24,7 @@ img {
   display:inline-flex
 
 } */
-.players-hand {
+#players-hand {
   display: inline-flex;
 }
 
@@ -39,14 +39,14 @@ button {
 }
 
 .chips button{
-  height: 60px;
-  width: 60px;
+  height: 100px;
+  width: 100px;
   color:white;
   background-color: black;
   border-radius: 50%;
-  border-style: double;
+  border-style:  double;
   border-width: thick;
-  font-size: 20px;
+  font-size: 24px;
   
 
 }

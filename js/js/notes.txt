@@ -1,3 +1,0 @@
-bugs:
-3rd player hit checking for bust
-

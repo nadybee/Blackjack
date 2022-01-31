@@ -18,14 +18,39 @@ ten.addEventListener ('click', e => {
 })
 
 hit.addEventListener('click', e=>{
+
   game.hitting()
+  
  
 })
+
+
 
 stay.addEventListener('click', e =>{
     game.stay()
 })
 
+double.addEventListener('click', e=>{
+  game.doubleDown()
+})
+
+
+
+
+
+
+
+
+
+
+
+
+// const newButton = document.createElement('BUTTON')
+// chips.appendChild(newButton)
+
+// newButton.addEventListener('click', e => {
+//   alert('are you sure?')
+// })
 
 
 
