@@ -531,6 +531,7 @@ reset(){
   playerCardTwo.src =''
   playerCardThree.src =''
   playerCardFour.src = ''
+  playerCardFive.src = ''
   this.playersTotal = 0
   this.dealersTotal = 0
 
