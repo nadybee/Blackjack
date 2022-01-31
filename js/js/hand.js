@@ -224,7 +224,7 @@ return total
 
  }
   /** calculate after dealers third hit */
-  get dealersForthTotal (){
+  get dealersFourthTotal (){
     let subTotal = this.dealersHand
     let total = 0
   
@@ -242,6 +242,7 @@ return total
   return total
   
    }
+
 
 
 /** checks if player has 21 to end hand
@@ -432,6 +433,7 @@ stayPlay() {
     dealersTotalDiv.innerHTML = `<p> Dealers Hand Total: ${this.dealersTotal}`
 
   }
+  
  
 }
 
