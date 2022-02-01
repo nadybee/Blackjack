@@ -166,6 +166,25 @@ return total
 
  }
  
+
+ get playersFourthTotal(){ 
+  let subTotal = 0
+  let total = 0
+
+  for(let i=0; i<this.playerHand.length; i++) {
+    subTotal+=this.playerHand[i].value
+  }
+  for (let j=0; j<this.playerHand.length; j++){
+    total += this.playerHand[j].value
+  }
+
+  if ((this.playerHand[0].ace|| this.playerHand[1].ace || this.playerHand[2].ace || this.playerHand[3].ace|| this.playerHand[4].ace) && (subTotal <= 11)) {
+    total +=10
+  }
+  
+return total
+
+ }
  get playersFifthTotal (){ 
   let subTotal = 0
   let total = 0
@@ -185,24 +204,6 @@ return total
 
  }
 
- get playersFourthTotal (){ 
-  let subTotal = 0
-  let total = 0
-
-  for(let i=0; i<this.playerHand.length; i++) {
-    subTotal+=this.playerHand[i].value
-  }
-  for (let j=0; j<this.playerHand.length; j++){
-    total += this.playerHand[j].value
-  }
-
-  if ((this.playerHand[0].ace|| this.playerHand[1].ace || this.playerHand[2].ace || this.playerHand[3].ace|| this.playerHand[4].ace) && (subTotal <= 11)) {
-    total +=10
-  }
-  
-return total
-
- }
 /*calculate dealers first deal*/
 get dealersFirstTotal (){ 
   let subTotal = 0
