@@ -166,6 +166,43 @@ return total
 
  }
  
+ get playersFifthTotal (){ 
+  let subTotal = 0
+  let total = 0
+
+  for(let i=0; i<this.playerHand.length; i++) {
+    subTotal+=this.playerHand[i].value
+  }
+  for (let j=0; j<this.playerHand.length; j++){
+    total += this.playerHand[j].value
+  }
+
+  if ((this.playerHand[0].ace|| this.playerHand[1].ace || this.playerHand[2].ace || this.playerHand[3].ace|| this.playerHand[4].ace ||this.playerHand[5].ace) && (subTotal <= 11)) {
+    total +=10
+  }
+  
+return total
+
+ }
+
+ get playersFourthTotal (){ 
+  let subTotal = 0
+  let total = 0
+
+  for(let i=0; i<this.playerHand.length; i++) {
+    subTotal+=this.playerHand[i].value
+  }
+  for (let j=0; j<this.playerHand.length; j++){
+    total += this.playerHand[j].value
+  }
+
+  if ((this.playerHand[0].ace|| this.playerHand[1].ace || this.playerHand[2].ace || this.playerHand[3].ace|| this.playerHand[4].ace) && (subTotal <= 11)) {
+    total +=10
+  }
+  
+return total
+
+ }
 /*calculate dealers first deal*/
 get dealersFirstTotal (){ 
   let subTotal = 0
@@ -236,6 +273,25 @@ return total
     }
   
     if ((this.dealerHand[0].ace|| this.dealerHand[1].ace || this.dealerHand[2].ace || this.dealerHand[3]||this.dealerHand[4].ace)  && (subTotal <= 11)) {
+      total +=10
+    }
+    
+  return total
+  
+   }
+
+   get dealersFifthTotal (){
+    let subTotal = this.dealersHand
+    let total = 0
+  
+    for(let i=0; i<this.dealerHand.length; i++) {
+      subTotal+=this.dealerHand[i].value
+    }
+    for (let j=0; j<this.dealerHand.length; j++){
+      total += this.dealerHand[j].value
+    }
+  
+    if ((this.dealerHand[0].ace|| this.dealerHand[1].ace || this.dealerHand[2].ace || this.dealerHand[3]||this.dealerHand[4].ace || this.dealerHand[5].ace)  && (subTotal <= 11)) {
       total +=10
     }
     
@@ -318,7 +374,7 @@ hitThree(){
    this.playerHand.push(this.deck.drawCard());
    pcardFiveSpot.appendChild(playerCardFive)
    playerCardFive.src = this.playerHand[4].img
-   this.playersTotal +=this.playerHand[4].value
+   this.playersTotal =this.playersFourthTotal
    playersTotalDiv.innerHTML = `<p> Players Hand Total: ${this.playersTotal}`
 }
 
@@ -327,7 +383,7 @@ hitFour(){
    this.playerHand.push(this.deck.drawCard());
    pcardSixSpot.appendChild(playerCardSix)
    playerCardSix.src = this.playerHand[5].img
-   this.playersTotal +=this.playerHand[5].value
+   this.playersTotal=this.playersFifthTotal
    playersTotalDiv.innerHTML = `<p> Players Hand Total: ${this.playersTotal}`
 }
 
@@ -409,7 +465,7 @@ stayPlay() {
   this.showDealersCard()
   actionButtons.classList.add('hidden')
 
-  if(this.dealersTotal<=16){
+  if(this.dealersTotal<17){
     this.dealerHand.push(this.deck.drawCard());
     dcardThreeSpot.appendChild(dealerCardThree)
     dealerCardThree.src = this.dealerHand[2].img
@@ -417,7 +473,7 @@ stayPlay() {
     dealersTotalDiv.innerHTML = `<p> Dealers Hand Total: ${this.dealersTotal}`
     
   }
-  if(this.dealersTotal <= 16 && this.dealerHand[2]) {
+  if(this.dealersTotal <17 && this.dealerHand[2]) {
     this.dealerHand.push(this.deck.drawCard());
     dcardFourSpot.appendChild(dealerCardFour)
     dealerCardFour.src = this.dealerHand[3].img
@@ -425,7 +481,7 @@ stayPlay() {
     dealersTotalDiv.innerHTML = `<p> Dealers Hand Total: ${this.dealersTotal}`
 
   }
-  if(this.dealersTotal <= 16 && this.dealerHand[3]) {
+  if(this.dealersTotal < 17 && this.dealerHand[3]) {
     this.dealerHand.push(this.deck.drawCard());
     dcardFiveSpot.appendChild(dealerCardFive)
     dealerCardFive.src = this.dealerHand[4].img
