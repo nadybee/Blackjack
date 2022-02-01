@@ -449,15 +449,15 @@ hitting() {
   }
   else if (this.playerHand[3] && !this.playerHand[4]) {
     this.hitThree()
-    this.checkForPlayersBust()
+    this.checkForPlayerBust()
   }
   else if (this.playerHand[4] && !this.playerHand[5]) {
     this.hitFour()
-    this.checkForPlayersBust()
+    this.checkForPlayerBust()
   }
   else if (this.playerHand[5] && !this.playerHand[6]) {
     this.hitFive()
-    this.checkForPlayersBust()
+    this.checkForPlayerBust()
   }
 
 }
@@ -487,6 +487,14 @@ stayPlay() {
     dcardFiveSpot.appendChild(dealerCardFive)
     dealerCardFive.src = this.dealerHand[4].img
     this.dealersTotal = this.dealersFourthTotal
+    dealersTotalDiv.innerHTML = `<p> Dealers Hand Total: ${this.dealersTotal}`
+
+  }
+  if(this.dealersTotal < 17 && this.dealerHand[4]) {
+    this.dealerHand.push(this.deck.drawCard());
+    dcardFiveSpot.appendChild(dealerCardFive)
+    dealerCardSix.src = this.dealerHand[5].img
+    this.dealersTotal = this.dealersFifthTotal
     dealersTotalDiv.innerHTML = `<p> Dealers Hand Total: ${this.dealersTotal}`
 
   }

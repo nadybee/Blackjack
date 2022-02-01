@@ -1,6 +1,7 @@
 bugs:
  if player hits when playerTotal is 21
 
+
 to do:
     when deck is out, get a new deck instead of ending game
    CSS animations and styling 
