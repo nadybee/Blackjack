@@ -5,3 +5,4 @@ bugs:
 to do:
     when deck is out, get a new deck instead of ending game
    CSS animations and styling 
+learn git
