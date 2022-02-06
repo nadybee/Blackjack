@@ -6,3 +6,244 @@ to do:
     when deck is out, get a new deck instead of ending game
    CSS animations and styling 
 learn git
+
+notes from jeremy:
+
+javascript scripts need to be in order
+
+extensiuon quokka
+
+ /*calculate players firsthand */
+  get playersFirstTotal () {
+    let subTotal = 0;
+    let total = 0;
+
+    for (let i = 0; i < this.playerHand.length; i++) {
+      subTotal += this.playerHand[i].value;
+    }
+    for (let j = 0; j < this.playerHand.length; j++) {
+      total += this.playerHand[j].value;
+    }
+
+    if ((this.playerHand[0].ace || this.playerHand[1].ace) && subTotal <= 11) {
+      total += 10;
+    }
+
+    return total;
+  }
+
+  /** calculate players first hit */
+  get playersSecondTotal () {
+    let subTotal = 0;
+    let total = 0;
+
+    for (let i = 0; i < this.playerHand.length; i++) {
+      subTotal += this.playerHand[i].value;
+    }
+    for (let j = 0; j < this.playerHand.length; j++) {
+      total += this.playerHand[j].value;
+    }
+
+    if (
+      (this.playerHand[0].ace ||
+        this.playerHand[1].ace ||
+        this.playerHand[2].ace) &&
+      subTotal <= 11
+    ) {
+      total += 10;
+    }
+
+    return total;
+  }
+
+  /** calculate players second hit */
+  get playersThirdTotal () {
+    let subTotal = 0;
+    let total = 0;
+
+    for (let i = 0; i < this.playerHand.length; i++) {
+      subTotal += this.playerHand[i].value;
+    }
+    for (let j = 0; j < this.playerHand.length; j++) {
+      total += this.playerHand[j].value;
+    }
+
+    if (
+      (this.playerHand[0].ace ||
+        this.playerHand[1].ace ||
+        this.playerHand[2].ace ||
+        this.playerHand[3].ace) &&
+      subTotal <= 11
+    ) {
+      total += 10;
+    }
+
+    return total;
+  }
+
+  get playersFourthTotal () {
+    let subTotal = 0;
+    let total = 0;
+
+    for (let i = 0; i < this.playerHand.length; i++) {
+      subTotal += this.playerHand[i].value;
+    }
+    for (let j = 0; j < this.playerHand.length; j++) {
+      total += this.playerHand[j].value;
+    }
+
+    if (
+      (this.playerHand[0].ace ||
+        this.playerHand[1].ace ||
+        this.playerHand[2].ace ||
+        this.playerHand[3].ace ||
+        this.playerHand[4].ace) &&
+      subTotal <= 11
+    ) {
+      total += 10;
+    }
+
+    return total;
+  }
+  get playersFifthTotal () {
+    let subTotal = 0;
+    let total = 0;
+
+    for (let i = 0; i < this.playerHand.length; i++) {
+      subTotal += this.playerHand[i].value;
+    }
+    for (let j = 0; j < this.playerHand.length; j++) {
+      total += this.playerHand[j].value;
+    }
+
+    if (
+      (this.playerHand[0].ace ||
+        this.playerHand[1].ace ||
+        this.playerHand[2].ace ||
+        this.playerHand[3].ace ||
+        this.playerHand[4].ace ||
+        this.playerHand[5].ace) &&
+      subTotal <= 11
+    ) {
+      total += 10;
+    }
+
+    return total;
+  }
+
+  /*calculate dealers first deal*/
+  get dealersFirstTotal () {
+    let subTotal = 0;
+    let total = 0;
+
+    for (let i = 0; i < this.dealerHand.length; i++) {
+      subTotal += this.dealerHand[i].value;
+    }
+    for (let j = 0; j < this.dealerHand.length; j++) {
+      total += this.dealerHand[j].value;
+    }
+
+    if ((this.dealerHand[0].ace || this.dealerHand[1].ace) && subTotal <= 11) {
+      total += 10;
+    }
+
+    return total;
+  }
+  /**calcuate after dealers first hit */
+  get dealersSecondTotal () {
+    let subTotal = this.dealersHand;
+    let total = 0;
+
+    for (let i = 0; i < this.dealerHand.length; i++) {
+      subTotal += this.dealerHand[i].value;
+    }
+    for (let j = 0; j < this.dealerHand.length; j++) {
+      total += this.dealerHand[j].value;
+    }
+
+    if (
+      (this.dealerHand[0].ace ||
+        this.dealerHand[1].ace ||
+        this.dealerHand[2].ace) &&
+      subTotal <= 11
+    ) {
+      total += 10;
+    }
+
+    return total;
+  }
+  /** calculate after dealers second hit */
+  get dealersThirdTotal () {
+    let subTotal = this.dealersHand;
+    let total = 0;
+
+    for (let i = 0; i < this.dealerHand.length; i++) {
+      subTotal += this.dealerHand[i].value;
+    }
+    for (let j = 0; j < this.dealerHand.length; j++) {
+      total += this.dealerHand[j].value;
+    }
+
+    if (
+      (this.dealerHand[0].ace ||
+        this.dealerHand[1].ace ||
+        this.dealerHand[2].ace ||
+        this.dealerHand[3]) &&
+      subTotal <= 11
+    ) {
+      total += 10;
+    }
+
+    return total;
+  }
+  /** calculate after dealers third hit */
+  get dealersFourthTotal () {
+    let subTotal = this.dealersHand;
+    let total = 0;
+
+    for (let i = 0; i < this.dealerHand.length; i++) {
+      subTotal += this.dealerHand[i].value;
+    }
+    for (let j = 0; j < this.dealerHand.length; j++) {
+      total += this.dealerHand[j].value;
+    }
+
+    if (
+      (this.dealerHand[0].ace ||
+        this.dealerHand[1].ace ||
+        this.dealerHand[2].ace ||
+        this.dealerHand[3] ||
+        this.dealerHand[4].ace) &&
+      subTotal <= 11
+    ) {
+      total += 10;
+    }
+
+    return total;
+  }
+
+  get dealersFifthTotal () {
+    let subTotal = this.dealersHand;
+    let total = 0;
+
+    for (let i = 0; i < this.dealerHand.length; i++) {
+      subTotal += this.dealerHand[i].value;
+    }
+    for (let j = 0; j < this.dealerHand.length; j++) {
+      total += this.dealerHand[j].value;
+    }
+
+    if (
+      (this.dealerHand[0].ace ||
+        this.dealerHand[1].ace ||
+        this.dealerHand[2].ace ||
+        this.dealerHand[3] ||
+        this.dealerHand[4].ace ||
+        this.dealerHand[5].ace) &&
+      subTotal <= 11
+    ) {
+      total += 10;
+    }
+
+    return total;
+  }
