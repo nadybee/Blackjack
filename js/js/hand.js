@@ -1,6 +1,6 @@
 class Hand {
-  constructor (deck) {
-    this.deck = new Deck(deck);
+  constructor () {
+    // this.deck = new Deck(deck);
     this.dealerHand = [];
     this.playerHand = [];
   }
@@ -33,6 +33,14 @@ class Hand {
     this._wins = value;
   }
 
+  get deck(){
+    return this._deck
+  }
+
+  set deck(value){
+    this._deck = value;
+  }
+
   /** starts the game */
 
   startGame () {
@@ -41,6 +49,7 @@ class Hand {
     this.wins = 0;
     this.losses = 0;
     wins.innerHTML = this.wins;
+    this.deck = new Deck(deck)
   }
 
   /** deals starting hand */
@@ -70,25 +79,27 @@ class Hand {
 
     /* deals players second card*/
     // this.playerHand.push(testDraw1)
-    // this.playerHand.push(testDraw2);
+    this.playerHand.push(testDraw2);
     // this.playerHand.push(testDraw3);
-    this.playerHand.push (this.deck.drawCard ());
+    // this.playerHand.push (this.deck.drawCard ());
     pcardTwoSpot.appendChild (playerCardTwo);
     playerCardTwo.src = this.playerHand[1].img;
 
     /** shows the players hand total, hides dealers total  */
     dealersTotalDiv.innerHTML = `<p> Dealers Hand Total: ??`;
     playersTotalDiv.innerHTML = `<p> Players Hand Total: ${this.playersTotal}`;
-
+    
     /** shows action (ie hit) buttons */
 
     actionButtons.classList.remove ('hidden');
     /**disables betting button */
+   
     ten.disabled = true;
     ten.classList.add ('disabled');
     /**checks if player has blackJack */
-    this.checkForPlayersBlackJack ();
-    this.checkForDealersBlackJack ();
+    this.checkForPlayersBlackJack();
+    this.checkForDealersBlackJack();
+  
     this.playersTotal = this.calculateHandTotal(this.playerHand);
     this.dealersTotal = this.calculateHandTotal(this.dealerHand);
     playersTotalDiv.innerHTML = `<p> Players Hand Total: ${this.playersTotal}`;
@@ -124,6 +135,7 @@ class Hand {
  * I want to do a timeout here!
  */
   checkForPlayersBlackJack () {
+    this.playersTotal = this.calculateHandTotal(this.playerHand);
     if (this.playersTotal === 21) {
       this.wins += 15;
       actionButtons.classList.add ('hidden');
@@ -138,6 +150,8 @@ class Hand {
   }
 
   checkForDealersBlackJack () {
+    this.playersTotal = this.calculateHandTotal(this.playerHand);
+    this.dealersTotal = this.calculateHandTotal(this.dealerHand);
     if (this.dealersTotal === 21 && this.playersTotal !== 21) {
       this.wins -= 10;
       this.activateBetButton ();
@@ -333,6 +347,11 @@ class Hand {
     this.checkWhoWonOnDouble ();
   }
 
+  shuffle(){
+      this.deck = new Deck(deck)
+      
+    }
+  
   // showSplit () {
   //   if (this.playerHand[0].value === this.playerHand[1].value){
   //     splitHand.classList.remove('hidden')
@@ -348,6 +367,9 @@ class Hand {
     this.resetButtons ();
   }
   resetButtons () {
+    if (this.deck.length<10) {
+      this.deck = new Deck(deck)
+    }
     this.dealerHand = [];
     this.playerHand = [];
     ten.disabled = false;

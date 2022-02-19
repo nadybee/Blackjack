@@ -6,15 +6,13 @@ start.addEventListener('click', e => {
 })
 
 //bet $10
-ten.addEventListener ('click', e => {
-    
-  if(game.deck.deck.length<10) {
-    game.reset()
-     alert('deck out, game over!')
-    }
-    else{
+ten.addEventListener ('click', e => { 
+  if (game.deck.deck.length<10){
+    alert('shuffling deck')
+  }
+
   game.firstBet()
-    }
+    
 })
 
 hit.addEventListener('click', e=>{
