@@ -15,7 +15,7 @@ header {
   background-color: black;
   padding: 12px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: 10 auto;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -38,9 +38,10 @@ h2 {
 justify-content: space-between;
   margin: 36px auto;
   padding: 16px;
-  width: 800px;
+  max-width: 800px;
   height: 300px;
   background-color: green;
+  border: 4px solid white;
   
 
 }
@@ -128,9 +129,15 @@ button {
   left: 160px;
 }
 
-
+.action-area {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
 
 .chips button{
+  margin-right: 40px;
+  margin-left: 40px;
   height: 80px;
   width: 80px;
   color:white;
