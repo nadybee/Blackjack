@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,106 +8,132 @@
   <link href="styles.css" rel="stylesheet">
   <title>Natalie's BlackJack Game</title>
 </head>
-<header>  <h1>BlackJack</h1> 
-<p> Rules: One deck. Dealer hits on 16, BlackJack pays 1.5, no push on dealers BlackJack, double down on 9, 10 or 11.</p>
+<header>
+  <h1>Natalie's Blackjack!</h1>
+  <p> Rules: One deck. Dealer hits on 16, BlackJack pays 1.5, no push on dealers BlackJack, double down on 9, 10 or 11.
+  </p>
 </header>
+
 <body>
 
-  
-  <button type="button" id='start'> START</button>
-  
-  <div id='deck'> <h2>Dealer</h2>
-    <div id='dealers-total'> dealers hand total:</div>
-    
-    <div id='dealers-hand'> 
-      <img src=card_images/backOfCard.jpeg class = 'hidden' id='card-back'>
-      <div id =dealer-card1></div>
-      <div id='dealer-card2'></div>
-      <div id='dealer-card3'></div>
-      <div id='dealer-card4'></div>
-      <div id='dealer-card5'></div>
+  <div class="container">
+
+    <div id="deck" class="dealers">
+      <h2>Dealer</h2>
+      <div id="dealers-total"> dealers hand total:</div>
+
+      <div id='dealers-hand'>
+        <img src="card_images/backOfCard.jpeg" class='hidden' id='card-back'>
+        <div id='dealer-card1'></div>
+        <div id='dealer-card2'></div>
+        <div id='dealer-card3'></div>
+        <div id='dealer-card4'></div>
+        <div id='dealer-card5'></div>
+
+      </div>
+
 
     </div>
-     
-     
-  </div>
 
-  <div id='player'> <h2>Player</h2>
-    <div id='players-total'> players hand total:</div>
-    <div id='current-bet'></div>
-    <div id="players-hand">
-    <div id='player-card1'></div>
-    <div id='player-card2'></div>
-    <div id='player-card3'></div>
-    <div id='player-card4'></div>
-    <div id='player-card5'></div>
-    <div id='player-card6'></div>
-    <div id='player-card7'></div>
-    <div id='player-card8'></div>
+    <div id='player'>
+      <h2>Player</h2>
+      <div id='players-total'> players hand total:</div>
+      <div id='current-bet'></div>
+      <div id="players-hand">
+        <div id='player-card1'></div>
+        <div id='player-card2'></div>
+        <div id='player-card3'></div>
+        <div id='player-card4'></div>
+        <div id='player-card5'></div>
+        <div id='player-card6'></div>
+        <div id='player-card7'></div>
+        <div id='player-card8'></div>
+      </div>
+      <div id='splitting'>
+        <div id='split-1'>
+          <div id='split1-card1'></div>
+          <div id='split1-card2'></div>
+          <div id='split1-card3'></div>
+          <div id='split1-card4'></div>
+          <div id='split1-card5'></div>
+        </div>
+        <div id='split-2'>
+          <div id='split2-card1'></div>
+          <div id='split2-card2'></div>
+          <div id='split3-card3'></div>
+          <div id='split4card4'></div>
+          <div id='split5card5'></div>
+        </div>
+      </div>
+    </div>
+    <br>
+
   </div>
-  <div id='splitting'>
-  <div id='split-1'>
-    <div id='split1-card1'></div>
-    <div id='split1-card2'></div>
-    <div id='split1-card3'></div>
-    <div id='split1-card4'></div>
-    <div id='split1-card5'></div>
-  </div>
-  <div id='split-2'>
-    <div id='split2-card1'></div>
-    <div id='split2-card2'></div>
-    <div id='split3-card3'></div>
-    <div id='split4card4'></div>
-    <div id='split5card5'></div>
-  </div>
-</div>
-  </div>
- <br>
-  
-     
-      <!-- <div id='split-area' class= 'hidden'>split area</div> -->
-      <div id='action-buttons' class='hidden'> 
+    <!-- <div id='split-area' class= 'hidden'>split area</div> -->
+    <div id='action-buttons' class='hidden'>
       <button type='button' id='hit'>hit</button>
       <button type='button' id='stay'>stay</button>
-      <button type='button' id='double' class= 'hidden'>double down</button>
-      
+      <button type='button' id='double' class='hidden'>double down</button>
+
     </div>
-         
-       </div>
-       <div id='blackjack' class='hidden'> <h1>BLACKJACK BABY!</h1> <h3>please bet again.</h3>
 
-       </h3></div>
-       <div id='busted' class='hidden'> <h1>YOU BUSTED!</h1> <h3>please bet again.</h3></div>
-       <div id='win' class='hidden'> <h1>YOU WON!</h1> <h3>please bet again.</h3></div>
-       <div id='lost' class='hidden'> <h1>YOU LOST!</h1><h3>please bet again.</h3> </div>
-       <div id='dealer-blackjack' class='hidden'> <h1>DEALER HAD BLACKJACK YOU LOST!</h1> <h3>please bet again.</h3></div>
-       <div id='dealer-busted' class='hidden'> <h1>DEALER BUSTED YOU WON!</h1><h3>please bet again.</h3> </div>
-       <div id='push' class='hidden'> <h1>PUSH</h1> <h3>please bet again.</h3></div>
 
-       <div id='chips'class='hidden'> 
-        <div class='chips'>
-         <button type='button'id='ten'>BET 10</button>
-         <!-- <button type='button' id='twenty'>20</button>
+    <div id='blackjack' class='hidden'>
+      <h1>BLACKJACK BABY!</h1>
+      <h3>please bet again.</h3>
+
+      </h3>
+    </div>
+    <div id='busted' class='hidden'>
+      <h1>YOU BUSTED!</h1>
+      <h3>please bet again.</h3>
+    </div>
+    <div id='win' class='hidden'>
+      <h1>YOU WON!</h1>
+      <h3>please bet again.</h3>
+    </div>
+    <div id='lost' class='hidden'>
+      <h1>YOU LOST!</h1>
+      <h3>please bet again.</h3>
+    </div>
+    <div id='dealer-blackjack' class='hidden'>
+      <h1>DEALER HAD BLACKJACK YOU LOST!</h1>
+      <h3>please bet again.</h3>
+    </div>
+    <div id='dealer-busted' class='hidden'>
+      <h1>DEALER BUSTED YOU WON!</h1>
+      <h3>please bet again.</h3>
+    </div>
+    <div id='push' class='hidden'>
+      <h1>PUSH</h1>
+      <h3>please bet again.</h3>
+    </div>
+
+    <div id='chips' class='hidden'>
+      <div class='chips'>
+        <button type='button' id='ten'>BET 10</button>
+        <!-- <button type='button' id='twenty'>20</button>
          <button type='button'id='forty'>40</button>
          <button type='button'id='hundred'>100</button>
          <button type='button'id='all-in'>ALL</button>
       </div> -->
       </div>
-       <div id='players-money'></div>
-      </div>
-      <div>
-        <h3>Winnings:</h3>
-        <div id='wins'></div>
-        <!-- <h3>Total losses:</h3> 
+      <div id='players-money'></div>
+    </div>
+    <div>
+      <h3>Winnings:</h3>
+      <div id='wins'></div>
+      <!-- <h3>Total losses:</h3> 
         <div id='losses'></div> -->
-      </div>
-    
+    </div>
+    <button type="button" id='start'> START</button>
 
   <script type="text/javascript" src="js/js/script.js"></script>
   <script type="text/javascript" src="js/js/deck.js"></script>
   <script type="text/javascript" src="js/js/hand.js"></script>
   <script type="text/javascript" src="js/js/variables.js"></script>
   <script type="text/javascript" src="js/js/cards.js"></script>
-  
+
 </body>
+
 </html>
