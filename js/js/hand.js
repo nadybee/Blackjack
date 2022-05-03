@@ -44,8 +44,8 @@ class Hand {
   /** starts the game */
 
   startGame() {
-    start.classList.add('hidden');
-    chips.classList.remove('hidden');
+    start.classList.add("hidden");
+    chips.classList.remove("hidden");
     this.wins = 0;
     // this.losses = 0;
     wins.innerHTML = this.wins;
@@ -60,10 +60,10 @@ class Hand {
     //  this.dealerHand.push(testDraw1)
     this.dealerHand.push(this.deck.drawCard());
     dCardOneSpot.appendChild(dealerCardOne);
-    dealerCardOne.classList.add('hidden');
+    dealerCardOne.classList.add("hidden");
     dealerCardOne.src = game.dealerHand[0].img;
-    cardBack.classList.remove('hidden');
-    cardBack.classList.add('show');
+    cardBack.classList.remove("hidden");
+    cardBack.classList.add("show");
 
     /*  deal players first card */
     // this.playerHand.push(testDraw1)
@@ -91,11 +91,11 @@ class Hand {
 
     /** shows action (ie hit) buttons */
 
-    actionButtons.classList.remove('hidden');
+    actionButtons.classList.remove("hidden");
     /**disables betting button */
 
     ten.disabled = true;
-    ten.classList.add('hidden');
+    ten.classList.add("hidden");
     /**checks if player has blackJack */
     this.checkForPlayersBlackJack();
     this.checkForDealersBlackJack();
@@ -138,13 +138,13 @@ class Hand {
     this.playersTotal = this.calculateHandTotal(this.playerHand);
     if (this.playersTotal === 21) {
       this.wins += 15;
-      actionButtons.classList.add('hidden');
-      blackJack.classList.remove('hidden');
+      actionButtons.classList.add("hidden");
+      blackJack.classList.remove("hidden");
       ten.disabled = false;
-      ten.classList.remove('hidden');
-      cardBack.classList.add('hidden');
-      cardBack.classList.remove('show');
-      dealerCardOne.classList.remove('hidden');
+      ten.classList.remove("hidden");
+      cardBack.classList.add("hidden");
+      cardBack.classList.remove("show");
+      dealerCardOne.classList.remove("hidden");
       dealersTotalDiv.innerHTML = `<p> Dealers Hand Total: ${this.dealersTotal}`;
     }
   }
@@ -156,20 +156,20 @@ class Hand {
       this.wins -= 10;
       this.activateBetButton();
       this.showDealersCard();
-      dealerBlackjack.classList.remove('hidden');
+      dealerBlackjack.classList.remove("hidden");
     }
   }
 
   activateBetButton() {
-    actionButtons.classList.add('hidden');
+    actionButtons.classList.add("hidden");
     ten.disabled = false;
-    ten.classList.remove('hidden');
+    ten.classList.remove("hidden");
   }
 
   showDealersCard() {
-    cardBack.classList.add('hidden');
-    cardBack.classList.remove('show');
-    dealerCardOne.classList.remove('hidden');
+    cardBack.classList.add("hidden");
+    cardBack.classList.remove("show");
+    dealerCardOne.classList.remove("hidden");
     dealersTotalDiv.innerHTML = `<p> Dealers Hand Total: ${this.dealersTotal}`;
   }
 
@@ -223,9 +223,9 @@ class Hand {
     if (this.playersTotal > 21) {
       this.wins -= 10;
       this.showDealersCard();
-      busted.classList.remove('hidden');
+      busted.classList.remove("hidden");
       wins.innerHTML = this.wins;
-      actionButtons.classList.add('hidden');
+      actionButtons.classList.add("hidden");
       this.activateBetButton();
     }
   }
@@ -233,15 +233,15 @@ class Hand {
   checkWhoWon() {
     if (this.dealersTotal > 21) {
       this.wins += 10;
-      dealerBusted.classList.remove('hidden');
+      dealerBusted.classList.remove("hidden");
     } else if (this.dealersTotal < this.playersTotal) {
       this.wins += 10;
-      win.classList.remove('hidden');
+      win.classList.remove("hidden");
     } else if (this.dealersTotal === this.playersTotal) {
-      push.classList.remove('hidden');
+      push.classList.remove("hidden");
     } else {
       this.wins -= 10;
-      lost.classList.remove('hidden');
+      lost.classList.remove("hidden");
     }
 
     wins.innerHTML = this.wins;
@@ -269,7 +269,7 @@ class Hand {
 
   stayPlay() {
     this.showDealersCard();
-    actionButtons.classList.add('hidden');
+    actionButtons.classList.add("hidden");
 
     if (this.dealersTotal < 17) {
       this.dealerHand.push(this.deck.drawCard());
@@ -313,22 +313,22 @@ class Hand {
       this.playersTotal === 10 ||
       this.playersTotal === 11
     ) {
-      double.classList.remove('hidden');
+      double.classList.remove("hidden");
     }
   }
   /** checking double down win to pay or lose double */
   checkWhoWonOnDouble() {
     if (this.dealersTotal > 21) {
       this.wins += 20;
-      dealerBusted.classList.remove('hidden');
+      dealerBusted.classList.remove("hidden");
     } else if (this.dealersTotal < this.playersTotal) {
       this.wins += 20;
-      win.classList.remove('hidden');
+      win.classList.remove("hidden");
     } else if (this.dealersTotal === this.playersTotal) {
-      push.classList.remove('hidden');
+      push.classList.remove("hidden");
     } else {
       this.wins -= 20;
-      lost.classList.remove('hidden');
+      lost.classList.remove("hidden");
     }
 
     wins.innerHTML = this.wins;
@@ -338,9 +338,9 @@ class Hand {
   /** hides other buttons, deals one card on double bet */
   doubleDown() {
     hit.disabled = true;
-    hit.classList.add('disabled');
+    hit.classList.add("disabled");
     stay.disabled = true;
-    stay.classList.add('disabled');
+    stay.classList.add("disabled");
 
     this.hitOne();
     this.stayPlay();
@@ -372,31 +372,31 @@ class Hand {
     this.dealerHand = [];
     this.playerHand = [];
     ten.disabled = false;
-    ten.classList.remove('hidden');
+    ten.classList.remove("hidden");
     hit.disabled = false;
-    hit.classList.remove('disabled');
+    hit.classList.remove("disabled");
     stay.disabled = false;
-    stay.classList.remove('disabled');
-    splitting.classList.add('hidden');
-    double.classList.add('hidden');
-    blackJack.classList.add('hidden');
-    busted.classList.add('hidden');
-    win.classList.add('hidden');
-    lost.classList.add('hidden');
-    push.classList.add('hidden');
-    dealerBusted.classList.add('hidden');
-    dealerBlackjack.classList.add('hidden');
-    dealerCardOne.src = '';
-    dealerCardTwo.src = '';
-    dealerCardThree.src = '';
-    dealerCardFour.src = '';
-    dealerCardFive.src = ''
-    playerCardOne.src = '';
-    playerCardTwo.src = '';
-    playerCardTwo.src = '';
-    playerCardThree.src = '';
-    playerCardFour.src = '';
-    playerCardFive.src = '';
+    stay.classList.remove("disabled");
+    splitting.classList.add("hidden");
+    double.classList.add("hidden");
+    blackJack.classList.add("hidden");
+    busted.classList.add("hidden");
+    win.classList.add("hidden");
+    lost.classList.add("hidden");
+    push.classList.add("hidden");
+    dealerBusted.classList.add("hidden");
+    dealerBlackjack.classList.add("hidden");
+    dealerCardOne.src = "";
+    dealerCardTwo.src = "";
+    dealerCardThree.src = "";
+    dealerCardFour.src = "";
+    dealerCardFive.src = "";
+    playerCardOne.src = "";
+    playerCardTwo.src = "";
+    playerCardTwo.src = "";
+    playerCardThree.src = "";
+    playerCardFour.src = "";
+    playerCardFive.src = "";
     this.playersTotal = 0;
     this.dealersTotal = 0;
   }

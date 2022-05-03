@@ -166,9 +166,17 @@ button {
 
 .action-area {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   max-width: 600px;
+  height: 100px;
+  background-color: black;
+  padding: 30px;
+}
+
+.action button {
+  margin-left: 10px;
 }
 
 .results {
@@ -178,9 +186,10 @@ button {
   padding: 12px;
   border-radius: 8px;
   min-width: 300px;
-  min-height: 80px;
+  height: 80px;
   margin-right: 24px;
- 
+  text-align: center;
+
 
 }
 
@@ -189,12 +198,12 @@ button {
   margin-left: 40px;
   height: 80px;
   width: 80px;
-  color: yellow;
-  background-color: black;
+  color: black;
+  background-color: white;
   border-radius: 50%;
-  border-style: double;
-  border-width: thick;
+  border: 8px double red;
   font-size: 18px;
+  box-shadow: 2px 2px 2px darkgray;
 
 }
 

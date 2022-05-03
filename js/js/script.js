@@ -1,49 +1,31 @@
-
-start.addEventListener('click', e => {
-   game = new Hand(deck)
-  game.startGame()
-
-})
+start.addEventListener("click", (e) => {
+  game = new Hand(deck);
+  game.startGame();
+});
 
 //bet $10
-ten.addEventListener ('click', e => { 
-  if (game.deck.deck.length<10){
-    game.deck = new Deck()
-alert(`shuffling. (you got to know when to hold 'em and know when to fold 'em`)
-    
+ten.addEventListener("click", (e) => {
+  if (game.deck.deck.length < 10) {
+    game.deck = new Deck();
+    alert(
+      `shuffling. (you got to know when to hold 'em and know when to fold 'em`
+    );
   }
 
-  game.firstBet()
-    
-})
+  game.firstBet();
+});
 
-hit.addEventListener('click', e=>{
+hit.addEventListener("click", (e) => {
+  game.hitting();
+});
 
-  game.hitting()
-  
- 
-})
+stay.addEventListener("click", (e) => {
+  game.stay();
+});
 
-
-
-stay.addEventListener('click', e =>{
-    game.stay()
-})
-
-double.addEventListener('click', e=>{
-  game.doubleDown()
-})
-
-
-
-
-
-
-
-
-
-
-
+double.addEventListener("click", (e) => {
+  game.doubleDown();
+});
 
 // const newButton = document.createElement('BUTTON')
 // chips.appendChild(newButton)
@@ -51,9 +33,6 @@ double.addEventListener('click', e=>{
 // newButton.addEventListener('click', e => {
 //   alert('are you sure?')
 // })
-
-
-
 
 // //bet $twenty
 // twenty.addEventListener ('click', e => {
@@ -81,7 +60,6 @@ double.addEventListener('click', e=>{
 
 // })
 
-
 // //bet $hundred
 // hundred.addEventListener ('click', e => {
 //   betBalance+=100
@@ -107,4 +85,3 @@ double.addEventListener('click', e=>{
 //  currentBet.classList.remove('hidden')
 
 // })
-  
