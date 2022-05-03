@@ -1,6 +1,6 @@
 class Deck {
   constructor(deck) {
-    this.deck = deck;
+    this.deck = [...cards, ...cards];
     this.shuffleDeck(deck);
   }
 
@@ -17,4 +17,4 @@ class Deck {
   }
 }
 
-//  }
+

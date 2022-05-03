@@ -1,4 +1,4 @@
-const deck = [
+const cards = [
   { name: 'ace of clubs',
     value: 1,
     img:'card_images/ace_of_clubs.png',

@@ -10,7 +10,7 @@
 </head>
 <header>
   <h1>Natalie's Blackjack!</h1>
-  <p> Rules: One deck. Dealer hits on 16, BlackJack pays 1.5, no push on dealers BlackJack, double down on 9, 10 or 11.
+  <p> Rules: Two decks. Dealer hits on 16, BlackJack pays 1.5, no push on dealers BlackJack, double down on 9, 10 or 11.
   </p>
 </header>
 
@@ -31,7 +31,12 @@
         <div id='dealer-card5'></div>
 
       </div>
+      <button type="button" id="start"> START</button>
+      <div class="wins">
+        <h3 >Winnings:</h3>
+        <div id="wins"></div>
 
+      </div>
 
     </div>
 
@@ -49,6 +54,7 @@
         <div id='player-card7'></div>
         <div id='player-card8'></div>
       </div>
+
       <div id='splitting'>
         <div id='split-1'>
           <div id='split1-card1'></div>
@@ -71,45 +77,43 @@
   </div>
     <!-- <div id='split-area' class= 'hidden'>split area</div> -->
   <div class="action-area"> 
-    <div id='action-buttons' class='hidden'>
-      <button type='button' id='hit'>hit</button>
-      <button type='button' id='stay'>stay</button>
-      <button type='button' id='double' class='hidden'>double down</button>
 
-    </div>
-
-
+<div class="results"> 
     <div id='blackjack' class='hidden'>
       <h1>BLACKJACK BABY!</h1>
       <h3>please bet again.</h3>
-
-      </h3>
     </div>
     <div id='busted' class='hidden'>
-      <h1>YOU BUSTED!</h1>
+      <h2>YOU BUSTED!</h2>
       <h3>please bet again.</h3>
     </div>
     <div id='win' class='hidden'>
-      <h1>YOU WON!</h1>
+      <h2>YOU WON!</h2>
       <h3>please bet again.</h3>
     </div>
     <div id='lost' class='hidden'>
-      <h1>YOU LOST!</h1>
+      <h2>YOU LOST!</h2>
       <h3>please bet again.</h3>
     </div>
     <div id='dealer-blackjack' class='hidden'>
-      <h1>DEALER HAD BLACKJACK YOU LOST!</h1>
+      <h2> dealer blackjack YOU LOST!</h2>
       <h3>please bet again.</h3>
     </div>
     <div id='dealer-busted' class='hidden'>
-      <h1>DEALER BUSTED YOU WON!</h1>
+      <h2>dealer busted YOU WON!</h2>
       <h3>please bet again.</h3>
     </div>
     <div id='push' class='hidden'>
-      <h1>PUSH</h1>
+      <h2>PUSH</h2>
       <h3>please bet again.</h3>
     </div>
+  </div>
+  <div id='action-buttons' class='hidden'>
+    <button type='button' id='hit'>hit</button>
+    <button type='button' id='stay'>stay</button>
+    <button type='button' id='double' class='hidden'>double down</button>
 
+  </div>
     <div id='chips' class='hidden'>
       <div class='chips'>
         <button type="button" id="ten">BET 10</button>
@@ -117,13 +121,8 @@
       </div>
       <div id="players-money"></div>
     </div>
-    <div>
-      <h3>Winnings:</h3>
-      <div id="wins"></div>
-      <!-- <h3>Total losses:</h3> 
-        <div id='losses'></div> -->
-    </div>
-    <button type="button" id="start"> START</button>
+  
+ 
   </div>
   <script type="text/javascript" src="js/js/script.js"></script>
   <script type="text/javascript" src="js/js/deck.js"></script>

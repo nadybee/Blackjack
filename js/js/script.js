@@ -8,7 +8,9 @@ start.addEventListener('click', e => {
 //bet $10
 ten.addEventListener ('click', e => { 
   if (game.deck.deck.length<10){
-    alert('shuffling deck')
+    game.deck = new Deck()
+alert(`shuffling. (you got to know when to hold 'em and know when to fold 'em`)
+    
   }
 
   game.firstBet()

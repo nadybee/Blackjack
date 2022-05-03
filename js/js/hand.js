@@ -47,9 +47,9 @@ class Hand {
     start.classList.add('hidden');
     chips.classList.remove('hidden');
     this.wins = 0;
-    this.losses = 0;
+    // this.losses = 0;
     wins.innerHTML = this.wins;
-    this.deck = new Deck(deck);
+    this.deck = new Deck();
   }
 
   /** deals starting hand */
@@ -95,7 +95,7 @@ class Hand {
     /**disables betting button */
 
     ten.disabled = true;
-    ten.classList.add('disabled');
+    ten.classList.add('hidden');
     /**checks if player has blackJack */
     this.checkForPlayersBlackJack();
     this.checkForDealersBlackJack();
@@ -141,7 +141,7 @@ class Hand {
       actionButtons.classList.add('hidden');
       blackJack.classList.remove('hidden');
       ten.disabled = false;
-      ten.classList.remove('disabled');
+      ten.classList.remove('hidden');
       cardBack.classList.add('hidden');
       cardBack.classList.remove('show');
       dealerCardOne.classList.remove('hidden');
@@ -163,7 +163,7 @@ class Hand {
   activateBetButton() {
     actionButtons.classList.add('hidden');
     ten.disabled = false;
-    ten.classList.remove('disabled');
+    ten.classList.remove('hidden');
   }
 
   showDealersCard() {
@@ -372,7 +372,7 @@ class Hand {
     this.dealerHand = [];
     this.playerHand = [];
     ten.disabled = false;
-    ten.classList.remove('disabled');
+    ten.classList.remove('hidden');
     hit.disabled = false;
     hit.classList.remove('disabled');
     stay.disabled = false;
@@ -390,6 +390,7 @@ class Hand {
     dealerCardTwo.src = '';
     dealerCardThree.src = '';
     dealerCardFour.src = '';
+    dealerCardFive.src = ''
     playerCardOne.src = '';
     playerCardTwo.src = '';
     playerCardTwo.src = '';
